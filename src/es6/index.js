@@ -85,3 +85,51 @@ let listOfNames = names.map(function (item){
 //ES6
 let listOfNames2 = names.map(item =>(item.name));
 const square = num => num *num;
+
+
+//promesas
+const helloPromise = () =>{ //asignamos una funcion (arrow function en este caso)
+    return new Promise((resolve, reject) =>{
+        if(true){//validamos la condicion de la promesa y asignamos las respuestas que dara
+            resolve('Todo bien!');
+        }else{
+            reject('Todo mal :(')
+        }
+    });
+}
+helloPromise().then(response => console.log(response)).catch(error => console.log(error));
+
+//Clases con ES6
+class calculator{
+    constructor(){
+        this.valueA = 0;
+        this.valueB = 0;
+    }
+    sum(valueA,valueB){
+        this.valueA = valueA;
+        this.valueB = valueB;
+        return this.valueA+this.valueB;
+    }
+}
+const calc = new calculator();
+console.log (calc.sum(2,3));
+
+//import y export
+import { hello } from './module';
+hello();
+
+
+//generator
+function*happyHackingG(){
+    if(true){
+        yield 'Happy, ';//yield guarda el estado de forma interna
+    }
+    if(true){
+        yield 'hacking';
+    }
+}
+const generatorHackingG = happyHackingG();
+console.log(generatorHackingG.next().value);
+console.log(generatorHackingG.next().value);
+console.log(generatorHackingG.next().value);
+//un algoritmo muy comun con este metodo de generator, es el fibonacci
